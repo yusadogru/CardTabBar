@@ -106,7 +106,8 @@
 				E326F2E12766330200DBCBFC /* CardTabBarController.swift */,
 				E326F2DC2766330200DBCBFC /* Utils */,
 			);
-			path = CardTabBar;
+			name = CardTabBar;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		E326F2DC2766330200DBCBFC /* Utils */ = {
