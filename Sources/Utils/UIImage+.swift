@@ -7,6 +7,12 @@
 
 import UIKit
 
+extension UIImage {
+    convenience init?(named: String) {
+        self.init(named: named, in: .resourceBundle, compatibleWith: nil)
+    }
+}
+
 private class LocalBundle {}
 extension Bundle {
     static let resourceBundle: Bundle = {
