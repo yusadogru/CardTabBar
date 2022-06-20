@@ -7,13 +7,7 @@
 
 import UIKit
 
-extension UIImage {
-    convenience init?(named: String) {
-        self.init(named: named, in: .resourceBundle, compatibleWith: nil)
-    }
-}
-
-class LocalBundle {}
+private class LocalBundle {}
 extension Bundle {
     static let resourceBundle: Bundle = {
         #if SWIFT_PACKAGE
