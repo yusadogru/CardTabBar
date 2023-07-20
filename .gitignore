@@ -38,3 +38,6 @@ fastlane/test_output
 
 ## Code Injection
 iOSInjectionProject/
+
+## Others
+.DS_Store
