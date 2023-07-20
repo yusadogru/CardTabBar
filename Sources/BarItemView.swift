@@ -12,7 +12,7 @@ class BarItemView: UIView {
     // MARK: - Options
     private enum Options {
         static let minWidth: CGFloat = 44
-        static let maxWidth: CGFloat = 110
+        static let maxWidth: CGFloat = 150
     }
 
     // MARK: - Views
@@ -20,6 +20,9 @@ class BarItemView: UIView {
 
     private lazy var labelTitle: UILabel = .build { label in
         label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        label.numberOfLines = 1
+        label.lineBreakMode = .byClipping
+        label.adjustsFontSizeToFitWidth = true
     }
 
     private lazy var viewContainer: UIView = .build()
@@ -32,7 +35,9 @@ class BarItemView: UIView {
     var isSelected: Bool = false {
         didSet {
             indicatorView.alpha = isSelected ? 1 : 0
-            widthConstraint?.constant = isSelected ? Options.maxWidth : Options.minWidth
+            let lblWidth = labelTitle.intrinsicContentSize.width + 50
+            let maxWidth = lblWidth > Options.maxWidth ? Options.maxWidth : lblWidth
+            widthConstraint?.constant = isSelected ? maxWidth : Options.minWidth
             
             labelTitle.alpha = isSelected ? 1 : 0
             titleLeadingConstraint?.isActive = isSelected
